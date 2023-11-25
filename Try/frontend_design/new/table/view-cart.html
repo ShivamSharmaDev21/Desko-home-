@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Table</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+<style>
+  body {
+	background: #eee;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+.content a{
+    float:right;
+}
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;	
+}
+
+#site-header, #site-footer {
+	background: #fff;
+}
+
+#site-header {
+	margin: 0 0 30px 0;
+}
+
+#site-header h1 {
+	font-size: 31px;
+	font-weight: 300;
+	padding: 40px 0;
+	position: relative;
+	margin: 0;
+	color: #000;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+	-ms-transition: color .2s linear;
+	-o-transition: color .2s linear;
+	transition: color .2s linear;
+}
+
+a:hover {
+	color: #53b5aa;
+}
+
+#site-header h1 span {
+	color: #53b5aa;
+}
+
+#site-header h1 span.last-span {
+	background: #fff;
+	padding-right: 150px;
+	position: absolute;
+	left: 217px;
+
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+#site-header h1:hover span.last-span, #site-header h1 span.is-open {
+	left: 363px;
+}
+
+#site-header h1 em {
+	font-size: 16px;
+	font-style: normal;
+	vertical-align: middle;
+}
+
+.container {
+
+	margin: 0 auto;
+	width: 980px;
+}
+
+#cart {
+	width: 100%;
+}
+
+#cart h1 {
+	font-weight: 400;
+	padding-right: 50px;
+}
+
+#cart a {
+	margin-top:65px;
+	margin-left: 100px;
+	text-decoration: none;
+
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+	-ms-transition: color .2s linear;
+	-o-transition: color .2s linear;
+	transition: color .2s linear;
+}
+
+#cart a:hover {
+	color: #000;
+}
+
+.product.removed {
+	margin-left: 980px !important;
+	opacity: 0;
+}
+
+.product {
+	border: 1px solid #eee;
+	margin: 20px 0;
+	width: 100%;
+	height: 195px;
+	position: relative;
+
+	-webkit-transition: margin .2s linear, opacity .2s linear;
+	-moz-transition: margin .2s linear, opacity .2s linear;
+	-ms-transition: margin .2s linear, opacity .2s linear;
+	-o-transition: margin .2s linear, opacity .2s linear;
+	transition: margin .2s linear, opacity .2s linear;
+}
+
+.product img {
+	width: 100%;
+	max-width:85%;
+	height: 100%;
+}
+
+.product header, .product .content {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-style: none none solid none;
+	float: left;
+}
+
+.product header {
+	/*background: #000;*/
+	margin: 0 0% 20px 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	width: 24%;
+	height: 194px;
+	border-radius: 5px 0px 0px 5px;
+}
+
+.product header:hover img {
+	opacity: .7;
+}
+
+.product header:hover h3 {
+	bottom: 73px;
+}
+
+.product header h3 {
+	background: #53b5aa;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 49px;
+	margin: 0;
+	padding: 0 30px;
+	position: absolute;
+	bottom: -50px;
+	right: 0;
+	left: 0;
+
+	-webkit-transition: bottom .2s linear;
+	-moz-transition: bottom .2s linear;
+	-ms-transition: bottom .2s linear;
+	-o-transition: bottom .2s linear;
+	transition: bottom .2s linear;
+}
+
+.remove {
+	cursor: pointer;
+}
+
+.product .content {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 194px;
+	padding: 0 0px;
+	width: 75%;
+	display:flex;
+	border-radius: 0px 5px 5px 0px;
+}
+
+.product h1 {
+	color: #000;
+	font-size: 23px;
+	font-weight: 300;
+	margin: 70px 0 20px 0;
+}
+
+.product footer.content {
+	height: 50px;
+	margin: 6px 0 0 0;
+	padding: 0;
+}
+
+.product footer .price {
+	background: #fcfcfc;
+	color: #000;
+	float: right;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 49px;
+	margin: 0;
+	padding: 0 30px;
+	display:none;
+}
+
+.product footer .full-price {
+    /* background: #53b5aa; */
+    color: #000;
+    float: right;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 49px;
+    margin: 0;
+    padding: 0 30px;
+    -webkit-transition: margin .15s linear;
+    -moz-transition: margin .15s linear;
+    -ms-transition: margin .15s linear;
+    -o-transition: margin .15s linear;
+    transition: margin .15s linear;
+}
+
+.qt, .qt-plus, .qt-minus {
+	display: block;
+	float: left;
+}
+
+.qt {
+	font-size: 19px;
+	line-height: 50px;
+	width: 70px;
+	text-align: center;
+}
+
+.qt-plus, .qt-minus {
+	background: #F8F8FA;
+	border: none;
+	font-size: 30px;
+	font-weight: 300;
+	height: 100%;
+	padding: 0 20px;
+	-webkit-transition: background .2s linear;
+	-moz-transition: background .2s linear;
+	-ms-transition: background .2s linear;
+	-o-transition: background .2s linear;
+	transition: background .2s linear;
+
+}
+
+.qt-plus:hover, .qt-minus:hover {
+	background: #53b5aa;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.qt-plus {
+	line-height: 50px;
+	height: 50px;
+	margin-right: 50px;
+	font-weight: 700;
+}
+
+.qt-minus {
+	line-height: 47px;
+	height: 50px;
+	font-weight: 700;
+}
+
+#site-footer {
+	margin: 30px 0 50px 0;
+}
+
+#site-footer {
+	padding: 40px;
+}
+
+#site-footer h1 {
+	background: #fcfcfc;
+	border: 1px solid #ccc;
+	border-style: none none solid none;
+	font-size: 24px;
+	font-weight: 300;
+	margin: 0 0 7px 0;
+	padding: 14px 40px;
+	text-align: center;
+}
+
+#site-footer h2 {
+	font-size: 24px;
+	font-weight: 300;
+	margin: 10px 0 0 0;
+}
+
+#site-footer h3 {
+	font-size: 19px;
+	font-weight: 300;
+	margin: 15px 0;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+	margin-right: 64px;
+}
+
+.btn {
+	background: #53b5aa;
+	border: 1px solid #999;
+	border-style: none none solid none;
+	cursor: pointer;
+	display: block;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 300;
+	/*padding: 16px 0;*/
+	width: 300px;
+	text-align: center;
+	font-weight: 500;
+
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+.btn-paddd{
+    padding: 16px 0;
+}
+.btn:hover {
+	color: #fff;
+	background: #429188;
+}
+
+.type {
+	background: #fcfcfc;
+	font-size: 13px;
+	padding: 10px 16px;
+	left: 100%;
+}
+
+.type, .color {
+	border: 1px solid #ccc;
+	border-style: none none solid none;
+	position: absolute;
+}
+
+.color {
+	width: 40px;
+	height: 40px;
+	right: -40px;
+}
+
+.red {
+	background: #cb5a5e;
+}
+
+.yellow {
+	background: #f1c40f;
+}
+
+.blue {
+	background: #3598dc;
+}
+
+.minused {
+	margin: 0 50px 0 0 !important;
+}
+
+.added {
+	margin: 0 -50px 0 0 !important;
+}
+.pad-top{
+    padding-top:60px;
+}
+@media only screen and (max-width: 667px){
+   . product h1{
+    font-size: 16px !important;
+    margin: 45px 0 0px 0 !important;
+}
+/*.left span{*/
+/*    margin-left: 8rem !important;*/
+/*}*/
+.product img{
+   max-width:100% !important;
+}
+#site-footer {
+    padding: 10px !important;
+}
+#site-footer h1 {
+        padding: 14px 20px;
+}
+.qt-minus {
+    line-height: 30px !important;
+    height: 40px !important;
+    font-weight: 700;
+}
+.qt {
+    font-size: 18px !important;
+    line-height: 40px !important;
+    width: 30px !important;
+    text-align: center;
+}
+.qt-plus {
+    line-height: 30px !important;
+    height: 40px !important;
+    margin-right: 50px !important;
+    font-weight: 700;
+}
+.pad-top {
+    padding-top: 45px !important;
+    margin-left: -20px;
+}
+.product footer .full-price{
+    font-size: 16px !important;
+}
+#cart h1{
+    padding-right: 10px !important;
+}
+#cart a {
+    margin-top: 50px !important;
+    margin-left: -32px !important;
+    
+}
+.qt-plus, .qt-minus {
+    padding: 0 10px  !important;
+}
+.product footer .full-price{
+    padding: 0 40px !important;
+    line-height: 0px !important;
+    margin: -22px 16px 0px 0px !important;
+}
+.product .content{
+    padding: 0 4px !important;
+    height: 130px !important;
+}
+.product header{
+    height: 130px !important;
+}
+.product{
+     height: 130px !important;
+}
+.product h1 {
+   font-size: 16px !important;
+    font-weight: 300;
+    margin: 40px 0 20px 0 !important;
+}
+.tax-p{
+    margin-left: 11rem;
+}
+.tax-p1{
+    margin-left: 8rem;
+}
+.tax-p2{
+    margin-left: 8rem;
+}
+.total-price{
+   margin-left: -1rem;
+}
+/*.right{*/
+/*    margin-left: -22px;*/
+/*}*/
+}
+</style>
+  </head>
+
+  <body>
+       <header>
+    <div class="header-banner">
+        <h1>Desk Home</h1>
+    </div>
+    <div class="clear"></div>
+    <nav>
+         <div class="site-title"><a href="index.html">Desk Home</a></div>
+       
+       
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <div class="div-pad">
+            <span>
+            <form class="form-inline">
+                <input class="form-control my-input" type="search" placeholder="Search for products..." aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0 badge-danger" type="submit" id="search-btn"><i class="fas fa-search"></i></button>
+             </form>
+            </span>
+        </div>
+        <div class="cart-icon login-right">
+            
+             <span class="my-cart-pad"><a class="" href="#"><i class="fas fa-cart-arrow-down"></i> <span class="badge badge-danger">3</span></a></span>
+              <!--<span class=""><a href="#"><i class="fas fa-user"></i> Login / Register</a></span>-->
+              <!--<span class="user-div"><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-user"></i> Login/SignUp</a></span>-->
+               
+               <span class="dropdown" style="float:right;" id="drop">
+                  <button class="dropbtn"><i class="fas fa-user"></i><i class="fas fa-caret-down my-down"></i></button>
+                  <span class="dropdown-content">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login/SignUp</a>
+                    <a href="my-profile.html">My Profile</a>
+                    <a href="my-order-new.html">My Orders</a>
+                    <a href="track-order.html">Track Orders</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Logout</a>
+                  </span>
+                </span>
+        </div>
+       
+         <div class="mobile-menu"><span onclick="openNav()"><i class="fas fa-bars"></i></span></div>
+        
+        
+    </nav>
+    <div id="myNav" class="overlay">
+
+   Button to close the overlay navigation 
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+   Overlay content 
+  <div class="overlay-content">
+    <a href="index.html">Home</a>
+    <a href="#">Prodect</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+ <!--Use any element to open/show the overlay navigation menu -->
+
+    
+</header>
+	<div id="site-header">
+		<div class="container">
+			<h1>Shopping cart <span>[</span> <em><a href="index.html" target="_blank">     Go To  Home Page</a></em> <span class="last-span is-open">]</span></h1>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<section id="cart"> 
+			<article class="product">
+				<header>
+				
+						<img src="assets/img/chair.png" alt="">
+
+						
+				</header>
+
+				<div class="content">
+
+					<h1>Office Chair</h1>
+					
+					<footer class="pad-top">
+					<span class="qt-minus">-</span>
+					<span class="qt">2</span>
+					<span class="qt-plus">+</span>
+
+					<h2 class="full-price">
+						$69.98
+					</h2>
+
+					<h2 class="price">
+						34.99
+					</h2>
+				    </footer>
+				
+				    <a class="remove">
+						<h3><i class="fa fa-trash mb-1 text-danger"></i></h3>
+					</a>
+				
+
+				</div>
+
+				
+			</article>
+
+			<article class="product">
+				<header>
+					
+						<img src="assets/img/chair.png" alt="">
+
+						
+				</header>
+
+				<div class="content">
+
+					<h1>Office Chair</h1>
+					
+					<footer class="pad-top">
+					<span class="qt-minus">-</span>
+					<span class="qt">2</span>
+					<span class="qt-plus">+</span>
+
+					<h2 class="full-price">
+						$69.98
+					</h2>
+
+					<h2 class="price">
+						34.99
+					</h2>
+				    </footer>
+				
+				    <a class="remove">
+						<h3><i class="fa fa-trash mb-1 text-danger"></i></h3>
+					</a>
+				
+
+				</div>
+
+				
+			</article>
+
+			<article class="product">
+				<header>
+				
+						<img src="assets/img/chair.png" alt="">
+
+						
+				</header>
+
+				<div class="content">
+
+					<h1>Office Chair</h1>
+					
+					<footer class="pad-top">
+					<span class="qt-minus">-</span>
+					<span class="qt">2</span>
+					<span class="qt-plus">+</span>
+
+					<h2 class="full-price">
+						$69.98
+					</h2>
+
+					<h2 class="price">
+						34.99
+					</h2>
+				    </footer>
+				
+				    <a class="remove">
+						<h3><i class="fa fa-trash mb-1 text-danger"></i></h3>
+					</a>
+				
+
+				</div>
+
+				
+			</article>
+
+		</section>
+		<div id="site-footer">
+		<div class="container clearfix">
+
+			<div class="left">
+				<h2 class="subtotal">Subtotal: <span class="tax-p1"> $163.96</span></h2>
+				<h3 class="tax">Taxes (5%): <span class="tax-p"> $8.2</span></h3>
+				<h3 class="shipping">Shipping: <span class="tax-p">$5.00</span></h3>
+			</div>
+
+			<div class="right">
+				<h1 class="total"><span class="total-price">Total:</span> <span class="tax-p2">$177.16</span></h1>
+				<a href="checkout.html" class="btn btn-paddd">Checkout</a>
+			</div>
+
+		</div>
+	</div>
+
+	</div>
+	<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Login / SignUp</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+	    
+	    
+	       <div class="form-modal">
+    
+    <div class="form-toggle">
+        <button id="login-toggle" onclick="toggleLogin()">log in</button>
+        <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+    </div>
+
+    <div id="login-form">
+        <form>
+            <labal>Email</labal>
+            <input type="text" placeholder="Enter email or username"/>
+            <br>
+            
+            <labal>Password</labal>
+            <input type="password" placeholder="Enter password"/>
+            <br>
+            <button type="button" class="btn login">login</button>
+            <!--<p><a href="javascript:void(0)">Forgotten account</a></p>-->
+            
+        </form>
+    </div>
+
+    <div id="signup-form">
+        <form>
+            <labal>User Name</labal>
+            <input type="text" placeholder="Enter username"/>
+             <labal>Email</labal>
+            <input type="email" placeholder="Enter your email"/>
+            
+            <labal>Password</labal>
+            <input type="password" placeholder="Create password"/>
+            <button type="button" class="btn signup">create account</button>
+            
+            
+        </form>
+    </div>
+
+</div>
+
+	        
+	    </div>
+	    
+	
+      </div>
+      <!--<div class="modal-footer">-->
+      <!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+      <!--  <button type="button" class="btn btn-primary">Understood</button>-->
+      <!--</div>-->
+    </div>
+  </div>
+
+	
+<!--order-->
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section
+    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+  >
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Company name
+          </h6>
+          <p>
+            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+         <p>
+            <a href="#!" class="text-reset">Products1</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Products2</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Products3</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Products4</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@example.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Deskohome.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+	
+
+
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="assets/main.js"></script>
+  <script>
+      var check = false;
+
+function changeVal(el) {
+  var qt = parseFloat(el.parent().children(".qt").html());
+  var price = parseFloat(el.parent().children(".price").html());
+  var eq = Math.round(price * qt * 100) / 100;
+  
+  el.parent().children(".full-price").html( "$" + eq );
+  
+  changeTotal();			
+}
+
+function changeTotal() {
+  
+  var price = 0;
+  
+  $(".full-price").each(function(index){
+    price += parseFloat($(".full-price").eq(index).html());
+  });
+  
+  price = Math.round(price * 100) / 100;
+  var tax = Math.round(price * 0.05 * 100) / 100
+  var shipping = parseFloat($(".shipping span").html());
+  var fullPrice = Math.round((price + tax + shipping) *100) / 100;
+  
+  if(price == 0) {
+    fullPrice = 0;
+  }
+  
+  $(".subtotal span").html(price);
+  $(".tax span").html(tax);
+  $(".total span").html(fullPrice);
+}
+
+$(document).ready(function(){
+  
+  $(".remove").click(function(){
+    var el = $(this);
+    el.parent().parent().addClass("removed");
+    window.setTimeout(
+      function(){
+        el.parent().parent().slideUp('fast', function() { 
+          el.parent().parent().remove(); 
+          if($(".product").length == 0) {
+            if(check) {
+              $("#cart").html("<h1>The shop does not function, yet!</h1><p>If you liked my shopping cart, please take a second and heart this Pen on <a href='https://codepen.io/ziga-miklic/pen/xhpob'>CodePen</a>. Thank you!</p>");
+            } else {
+              $("#cart").html("<h1>No products!</h1>");
+            }
+          }
+          changeTotal(); 
+        });
+      }, 200);
+  });
+  
+  $(".qt-plus").click(function(){
+    $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
+    
+    $(this).parent().children(".full-price").addClass("added");
+    
+    var el = $(this);
+    window.setTimeout(function(){el.parent().children(".full-price").removeClass("added"); changeVal(el);}, 150);
+  });
+  
+  $(".qt-minus").click(function(){
+    
+    child = $(this).parent().children(".qt");
+    
+    if(parseInt(child.html()) > 1) {
+      child.html(parseInt(child.html()) - 1);
+    }
+    
+    $(this).parent().children(".full-price").addClass("minused");
+    
+    var el = $(this);
+    window.setTimeout(function(){el.parent().children(".full-price").removeClass("minused"); changeVal(el);}, 150);
+  });
+  
+  window.setTimeout(function(){$(".is-open").removeClass("is-open")}, 1200);
+  
+  $(".btn").click(function(){
+    check = true;
+    $(".remove").click();
+  });
+});
+  </script>
+  <script>
+      $(window).scroll(function(){
+    if ($(window).scrollTop() >= 300) {
+        $('nav').addClass('fixed-header');
+        $('nav div').addClass('visible-title');
+    }
+    else {
+        $('nav').removeClass('fixed-header');
+        $('nav div').removeClass('visible-title');
+    }
+});
+  </script>
+  <script>
+  function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+<script>
+    function toggleSignup(){
+   document.getElementById("login-toggle").style.backgroundColor="#fff";
+    document.getElementById("login-toggle").style.color="#222";
+    document.getElementById("signup-toggle").style.backgroundColor="#57b846";
+    document.getElementById("signup-toggle").style.color="#fff";
+    document.getElementById("login-form").style.display="none";
+    document.getElementById("signup-form").style.display="block";
+}
+
+function toggleLogin(){
+    document.getElementById("login-toggle").style.backgroundColor="#57B846";
+    document.getElementById("login-toggle").style.color="#fff";
+    document.getElementById("signup-toggle").style.backgroundColor="#fff";
+    document.getElementById("signup-toggle").style.color="#222";
+    document.getElementById("signup-form").style.display="none";
+    document.getElementById("login-form").style.display="block";
+}
+</script>
+  </body>
+  <!-- JavaScript Bundle with Popper -->
+</html>
