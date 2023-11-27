@@ -1,0 +1,24 @@
+#customize-controls .control-section-cheerful-blog .accordion-section-title:hover,
+#customize-controls .control-section-cheerful-blog .accordion-section-title:focus {
+	background-color: #000000;
+	color: #fff;
+}
+
+.control-section-cheerful-blog .accordion-section-title .button {
+	margin-top:  -4px;
+	font-weight: 400;
+	margin-left: 8px;
+	background-color: #ef2853;
+	border-color: #ef2853;
+	color: #fff;
+}
+
+.rtl .control-section-cheerful-blog .accordion-section-title .button {
+	margin-left:  0;
+	margin-right: 8px;
+}
+
+li#accordion-section-cheerful-blog h3.accordion-section-title {
+    background-color: #000000;
+    color: #fff;
+}
